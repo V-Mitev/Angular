@@ -14,12 +14,12 @@ function ticketManager(input: string[], sortingCriteria: string): Ticket[] {
     const tickets = input.map(ticket => {
         let [destination, price, status] = ticket.split('|');
 
-        return new Ticket(destination, Number(price), status);
+        return new Ticket(destination!, Number(price), status!);
     })
 
     return tickets.sort((a, b) => {
-        const aValue = a[sortingCriteria as keyof Ticket];
-        const bValue = b[sortingCriteria as keyof Ticket];
+        const aValue = a[sortingCriteria as keyof Ticket]!;
+        const bValue = b[sortingCriteria as keyof Ticket]!;
 
         if (typeof aValue === 'number' && typeof bValue === 'number') {
             return aValue - bValue;
